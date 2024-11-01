@@ -1,0 +1,7 @@
+:root {
+	--scu-color: pink;
+}
+
+.scu-tutorial-3 {
+	color: var(--scu-color);
+}

@@ -1,0 +1,78 @@
+// IIFE (Immediately Invoked Function Expression)
+// Anonymous function (no named function), can be executed only once
+// Wraps the code so that $ is jQuery inside that closure, even if $ means something else outside of it					
+// Closure. Protect the global scope
+// If function would be assigned to a var (not IIFE), it is a mean of  Namespacing the javascript. var cmb_shortcodes = cmb_shortcodes || {};
+
+//****************************************************************
+// ¡¡¡¡ The magic: We are using a .php file as a .js file !!!!!!!
+/*****************************************************************/
+
+// Javascript Ajax request must be sent to admin-ajax.php for several reasons:
+// 1. Loads the Wordpress Core. 2. nonces with easy built-in security. 3. "Logged in" status
+// admin-ajax.php constructs a hook do_action with wp_ajax_nopriv_{name of action} which executes when called
+// So is needed a previous add_action('wp_ajax_nopriv_{action_name}', handler) to hook in before calling admin-ajax.php via javascript.
+
+(function($) {					
+	"use strict";	// Throws more exceptions	
+	var shortcode = '<?php echo($_REQUEST["shortcode"]); ?>';
+	var shortcodeUrl = '<?php echo "$_SERVER[REQUEST_SCHEME]://$_SERVER[HTTP_HOST]".dirname(dirname(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH)))."/shortcodes/".$_REQUEST["shortcode"]; ?>';
+	
+/*
+	var script_tag = document.getElementById('cmb-shortcode-js');
+	var query = script_tag.src.replace(/^[^\?]+\??/,''); 
+	// Parse the querystring into arguments and parameters
+	var vars = query.split("&");
+	var args = {};
+	for (var i=0; i<vars.length; i++) {
+ 	     var pair = vars[i].split("=");
+ 	     // decodeURI doesn't expand "+" to a space.
+ 	     args[pair[0]] = decodeURI(pair[1]).replace(/\+/g, ' ');
+	}
+	var shortcode = args['shortcode'];
+	var shortcodeUrl = args['shortcodeUrl'];
+	console.log(shortcodeUrl);	
+	var shortcode = document.currentScript.getAttribute('data-shortcode');
+	var shortcodeUrl = document.currentScript.src;	
+	//var shortcodeUrl = script_tag.src;
+	let url = new URL(shortcodeUrl);	
+	var shortcode = url.searchParams.get("shortcode");
+	console.log(shortcode);
+*/
+
+	$(document).ready(function() {		
+		var $shortcodeDivs = $(".cmb-"+shortcode);		
+		var ajaxurl = cmb_ajax_main.ajaxurl;
+		
+		$shortcodeDivs.each(function() {
+			var content = $(this).html();
+			var atts = $(this).data();
+		
+			var ajaxdata = {
+				action: 'cmb_ajax_handler',
+				security: cmb_ajax_main.ajaxNonce, 
+				requests: cmb_ajax_main.requests,
+				shortcode: shortcode,
+				shortcodeUrl: shortcodeUrl,
+				//i18n: i18n,
+				content: content,
+				atts: atts
+			};
+			
+					
+			/***************************************************
+			* Begin specific shortcode js
+			****************************************************/
+						
+			<?php
+				$jsfilepath = dirname(getcwd()).'/shortcodes/'.$_REQUEST["shortcode"].'/cmb-script.js';				
+				readfile($jsfilepath);				
+			?>
+
+			/***************************************************
+			* End of specific shortcode js
+			****************************************************/
+
+		});
+	});
+})(jQuery);

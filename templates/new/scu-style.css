@@ -1,0 +1,8 @@
+/** 
+ * Use variables in css if you want to use shortcode attributes. For example: 
+ * 	:root {
+ *		--scu-color: pink;
+ *	}
+ * Then, modify the var with JS	(See tutorial 3)
+ * 
+*/

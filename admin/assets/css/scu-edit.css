@@ -1,0 +1,228 @@
+.drag-drop-area {
+	border: 4px dashed #ddd;
+	height: 200px;
+}
+
+.scu-file {
+    min-height: 36px;
+    margin-bottom: 1px;
+    position: relative;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 1px 0 #ddd;
+    display: flex;
+}
+.scu-file-name {
+    margin: auto auto auto 12px;
+}
+.scu-file-action {
+	display: block;
+	line-height: 36px;
+	float: right;
+	margin-right: 10px;
+}
+.scu-file-progress {
+	float: right;
+	height: 22px;
+	margin: 7px 6px;
+	width: 200px;
+	line-height: 2em;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 22px;
+	background: #ddd;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);	
+}
+.scu-file-progress-percent {
+	z-index: 10;
+	position: relative;
+	width: 200px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	line-height: 22px;
+	font-weight: 400;
+	text-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.scu-file-progress-bar {
+	z-index: 9;
+	width: 0;
+	height: 100%;
+	margin-top: -22px;
+	border-radius: 22px;
+	background-color: #0073aa;
+	box-shadow: inset 0 0 2px rgba(0,0,0,.3);
+}
+
+.file-dismiss {
+	border: none;
+	margin-top: -28px;
+	margin-right: -10px;
+	background: 0 0;
+	cursor: pointer;
+	float: right;
+}
+
+.file-dismiss:before {
+	background: 0 0;
+	color: #72777c;
+	content: "\f153";
+	display: block;
+	font: 400 16px/20px dashicons;
+	speak: none;
+	height: 20px;
+	text-align: center;
+	width: 20px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.file-dismiss:hover:before {
+	color: #c00;
+}
+
+
+
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; margin: 5px 0; padding: 5px; font-size: 1.5em; border-color: #999;}
+
+.scu-edit-block {
+	width: 60%;
+	background: white;
+	padding: 0px;
+	margin-bottom: 20px
+}
+ 
+.accordion {
+	width: 100%;
+	cursor: pointer;
+	color: #23282d;
+    font-size: 1.3em;
+    padding: 15px;
+    background-color: white;
+    font-weight:600;
+    border: 1px solid #999;
+}
+
+.accordion:after {
+	content: '\f140';
+	color: #72777c;
+	float: right;
+	font: normal 20px/1 dashicons;
+	/*
+	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30,140,190,.8);
+	border-radius: 50%;
+	padding: 1px 2px 1px 0;
+	*/
+}
+
+.accordion:hover {
+	background-color: #fff;
+}
+
+.active {
+	border-bottom: none;
+}
+
+.active:after {
+	content: "\f142";
+}
+
+.panel {
+	width: 100%;
+	padding: 0 15px;
+	background-color: white;
+	/* max-height: 0; */
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-top: none;
+}
+
+.scu-attribute .accordion {
+	margin: 5px 0 0 0;
+	width: auto;
+	font-size: 1em;
+}
+
+#scu-fieldset {
+	display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+    padding: 5px 20px 25px 20px;
+}
+
+.accordion-container {
+	margin: 6px 0;	
+}
+
+.accordion-section {
+	border: none;
+}
+
+.accordion-container .open > .accordion-section-title {
+	border: 1px solid #999;
+}
+
+.accordion-section-title:after {
+	position: initial !important;
+}
+.accordion-container .open > .accordion-section-title:after {
+	content: "\f142";
+	color: #23282d;
+}
+
+#scu-edit-block-attributes .accordion-section-title {
+	font-size: 1em;
+	border: 1px solid #c5c5c5;
+	background: #fafafa;
+
+}
+
+#scu-edit-block-attributes .accordion-section-title:hover {
+	border: 1px solid #999;
+}
+
+#scu-edit-block-attributes .accordion-section-content {
+	border-left: 1px solid #c5c5c5;
+	border-right: 1px solid #c5c5c5;
+	border-bottom: 1px solid #c5c5c5;
+}
+
+
+#scu-edit-block-general .accordion-section-title {
+	border: 0;
+}
+
+#scu-edit-block-general .accordion-section-content {
+	padding: 0;
+}
+
+.scu-edit-block h2 {
+	margin: 0;
+	padding: 0 0 5px 0;
+}
+
+
+.accordion2 {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+

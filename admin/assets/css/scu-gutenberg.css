@@ -1,0 +1,50 @@
+.test {
+	color:red;
+}
+.scu-inspector-panelrow {
+	flex-flow: wrap;
+}
+
+.scu-inspector-panelrow > .components-base-control {
+	margin-bottom: 10px !important;
+}
+
+.scu-inspector-panelrow > p {
+	flex-basis: 100%;
+}
+
+.scu-mediaupload {
+	display: block;
+}
+
+.scu-mediaupload button {
+	position: relative;
+    	top: -20px;
+}
+
+.wp-block-shortcodes-creator-ultimate {
+	background: rgba(139,139,150,.1);
+	padding: 13px;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+	font-size: 13px;
+}
+
+.wp-block-shortcodes-creator-ultimate input {
+	pointer-events: none;		
+}
+
+.wp-block-shortcodes-creator-ultimate label {
+	font-weight: 600;
+}
+
+.wp-block-shortcodes-creator-ultimate .rich-text {
+	background: white;
+	padding: 13px;
+	border: solid 1px #7e8993;
+	border-radius: 3px;
+}
+
+.wp-block-shortcodes-creator-ultimate .rich-text:focus {
+	border-color: #007cba;
+	box-shadow: 0 0 0 1px #007cba;
+}
